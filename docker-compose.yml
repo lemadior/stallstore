@@ -21,7 +21,6 @@ services:
     user: "1000:33"
     depends_on:
       - db
-      - redis
     volumes:
       - ./:/var/www/
     extra_hosts:
@@ -61,15 +60,6 @@ services:
       - PMA_HOST=db
       - PMA_USER=${DB_USERNAME}
       - PMA_PASSWORD=${DB_PASSWORD}
-    networks:
-      - mynetwork
-
-  redis:
-    image: redis:alpine
-    container_name: redis
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
     networks:
       - mynetwork
 

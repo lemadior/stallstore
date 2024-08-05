@@ -19,9 +19,6 @@ RUN apt-get update && apt-get install -y \
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
-RUN pecl install redis
-RUN docker-php-ext-enable redis
-
 COPY ./_docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
 
 # Install composer
