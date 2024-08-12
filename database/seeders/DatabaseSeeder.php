@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
         // Create categories
         Category::factory(5)->create();
 
+        // Create the guest user
+        User::factory()->hasCart()->create([
+            'name' => 'guest',
+            'email' => 'guest@example.com'
+        ]);
+
         // Create users and attach its to the cart
         User::factory(5)->hasCart()->create();
 
