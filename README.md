@@ -50,4 +50,9 @@ Update the node modules:
 **NOTE**: the seeder will create a few test users but for testing the 'guest 
 user will be used.
 
-10. To start the application use URL http://localhost:5000
+10. Before start type the command:
+
+```npm run dev```
+
+Then the URL http://localhost:5000 must be available to testing
+
