@@ -1,10 +1,10 @@
 import './bootstrap';
-// import '../css/app.css';
+import '../css/app.css';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-// import Layout from './Layouts/Layout.vue';
+import Layout from './Layouts/Layout.vue';
 
 
 createInertiaApp({
@@ -13,7 +13,7 @@ createInertiaApp({
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
         const page = pages[ `./Pages/${name}.vue` ];
 
-        // page.default.layout = page.default.layout ?? Layout;
+        page.default.layout = page.default.layout ?? Layout;
 
         return page;
     },

@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Store\Cart;
-use App\Models\Store\Category;
-use App\Models\Store\Order;
-use App\Models\Store\Product;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Store\Category;
+use App\Models\Store\Product;
+use App\Models\Store\Order;
+use App\Models\Store\Cart;
+use App\Models\User;
+
 
 class DatabaseSeeder extends Seeder
 {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\Store\CartService;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -15,6 +16,12 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'app';
+    protected CartService $cartService;
+
+    public function __construct()
+    {
+        $this->cartService = app(CartService::class);
+    }
 
     /**
      * Determines the current asset version.
@@ -42,7 +49,12 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn() => $request->session()->get('success'),
                 'error' => fn() => $request->session()->get('error'),
-            ]
+            ],
+            'cartItemCount' => function () use ($request) {
+                $userId = $request->user() ? $request->user()->only('id')->first()->id : 1;
+
+                return count($this->cartService->getCartProducts($userId));
+            }
         ]);
     }
 }

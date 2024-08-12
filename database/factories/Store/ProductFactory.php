@@ -2,9 +2,9 @@
 
 namespace Database\Factories\Store;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Store\Category;
 use Exception;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Store\Product>
